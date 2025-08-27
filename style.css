@@ -1,0 +1,356 @@
+/* ===========================================
+   PASSO 1: REMOVENDO ESPAÇOS PADRÃO
+   =========================================== */
+
+/* O navegador adiciona margens automáticas - vamos remover */
+* {
+    margin: 0;                      /* Remove todas as margens */
+    padding: 0;                     /* Remove todos os espaçamentos internos */
+    box-sizing: border-box;         /* Facilita os cálculos de tamanho */
+}
+
+/* ===========================================
+   PASSO 2: CORES PARA TEMA CLARO (PADRÃO)
+   =========================================== */
+
+body {
+    /* Definindo a "família" da fonte (tipo de letra) */
+    font-family: Arial, sans-serif;
+    
+    /* TEMA CLARO - cores principais */
+    background-color: #ffffff;      /* Fundo branco */
+    color: #333333;                 /* Texto cinza escuro */
+    
+    /* Espaçamento entre as linhas do texto */
+    line-height: 1.6;
+    
+    /* ANIMAÇÃO: quando mudar de cor, será suave (0.3 segundos) */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ===========================================
+   PASSO 3: ESTILIZANDO O CABEÇALHO
+   =========================================== */
+
+.cabecalho {
+    /* Fundo ligeiramente diferente para destacar */
+    background-color: #f8f9fa;
+    
+    /* Espaçamento interno (padding) */
+    padding: 40px 20px;
+    
+    /* Centralizar o texto */
+    text-align: center;
+    
+    /* Sombra sutil embaixo */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    
+    /* Animação suave quando mudar de cor */
+    transition: background-color 0.3s ease;
+}
+
+/* Nome principal - bem grande e destacado */
+.cabecalho h1 {
+    font-size: 2.5rem;             /* Tamanho bem grande */
+    color: #2c3e50;                /* Azul escuro elegante */
+    margin-bottom: 10px;           /* Espaço embaixo */
+}
+
+/* Profissão - menor que o nome */
+.cabecalho h2 {
+    font-size: 1.3rem;
+    color: #7f8c8d;                /* Cinza mais claro */
+    font-weight: normal;           /* Não deixa em negrito */
+}
+
+/* ===========================================
+   PASSO 4: BOTÃO DE ALTERNÂNCIA DE TEMA
+   =========================================== */
+
+.botao-tema {
+    /* Posição fixa no canto da tela */
+    position: fixed;
+    top: 20px;                     /* 20px do topo */
+    right: 20px;                   /* 20px da direita */
+    
+    /* Cores do botão */
+    background-color: #3498db;     /* Azul bonito */
+    color: white;                  /* Texto branco */
+    
+    /* Remove a borda padrão */
+    border: none;
+    
+    /* Tamanho e formato */
+    padding: 12px 20px;            /* Espaçamento interno */
+    border-radius: 25px;           /* Cantos bem arredondados */
+    
+    /* Cursor vira "mãozinha" quando passa por cima */
+    cursor: pointer;
+    
+    /* Tamanho da letra */
+    font-size: 0.9rem;
+    font-weight: bold;
+    
+    /* Animações suaves */
+    transition: all 0.3s ease;
+    
+    /* Fica na frente de outros elementos */
+    z-index: 1000;
+}
+
+/* Efeito quando passa o mouse sobre o botão */
+.botao-tema:hover {
+    background-color: #2980b9;     /* Azul mais escuro */
+    transform: scale(1.05);        /* Cresce um pouquinho */
+}
+
+/* ===========================================
+   PASSO 5: CONTAINER PRINCIPAL
+   =========================================== */
+
+.container {
+    /* Largura máxima para não ficar muito largo */
+    max-width: 800px;
+    
+    /* Centraliza na página */
+    margin: 0 auto;
+    
+    /* Espaçamento nas laterais */
+    padding: 40px 20px;
+}
+
+/* ===========================================
+   PASSO 6: SEÇÕES DO CURRÍCULO
+   =========================================== */
+
+.secao {
+    /* Espaçamento entre cada seção */
+    margin-bottom: 40px;
+    
+    /* Fundo branco com sombra sutil */
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;           /* Cantos arredondados */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    
+    /* Animação suave */
+    transition: all 0.3s ease;
+}
+
+/* Títulos das seções */
+.secao h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;                /* Mesmo azul do nome */
+    margin-bottom: 20px;           /* Espaço embaixo */
+    
+    /* Borda embaixo para destacar */
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+/* Parágrafos dentro das seções */
+.secao p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    text-align: justify;           /* Texto justificado */
+}
+
+/* ===========================================
+   PASSO 7: EXPERIÊNCIA E FORMAÇÃO
+   =========================================== */
+
+.experiencia-item,
+.formacao-item {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ecf0f1;  /* Linha separadora sutil */
+}
+
+.experiencia-item:last-child,
+.formacao-item:last-child {
+    border-bottom: none;           /* Remove linha do último item */
+    margin-bottom: 0;
+}
+
+.experiencia-item h4,
+.formacao-item h4 {
+    color: #3498db;                /* Azul para destacar */
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.data {
+    font-size: 0.9rem;
+    color: #7f8c8d;                /* Cinza mais claro */
+    margin-bottom: 10px !important;
+    font-style: italic;            /* Texto em itálico */
+}
+
+/* ===========================================
+   PASSO 8: LISTA DE HABILIDADES
+   =========================================== */
+
+.habilidades {
+    /* Organiza em colunas */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;                     /* Espaço entre itens */
+}
+
+.habilidade-item {
+    background-color: #ecf0f1;     /* Fundo cinza claro */
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+/* Efeito hover nas habilidades */
+.habilidade-item:hover {
+    background-color: #3498db;
+    color: white;
+    transform: translateY(-3px);   /* Levanta um pouquinho */
+}
+
+/* ===========================================
+   PASSO 9: INFORMAÇÕES DE CONTATO
+   =========================================== */
+
+.contato {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.contato-item {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.contato-item:hover {
+    background-color: #e9ecef;
+    transform: translateY(-2px);   /* Pequeno movimento para cima */
+}
+
+/* ===========================================
+   PASSO 10: TEMA ESCURO 🌙
+   =========================================== */
+
+/* Quando o body tiver a classe "dark", aplica estas cores */
+body.dark {
+    background-color: #1a1a1a;     /* Fundo bem escuro */
+    color: #ffffff;                /* Texto branco */
+}
+
+/* Cabeçalho no tema escuro */
+body.dark .cabecalho {
+    background-color: #2c2c2c;     /* Cinza escuro */
+}
+
+body.dark .cabecalho h1 {
+    color: #ffffff;                /* Nome em branco */
+}
+
+body.dark .cabecalho h2 {
+    color: #bdc3c7;                /* Profissão em cinza claro */
+}
+
+/* Seções no tema escuro */
+body.dark .secao {
+    background-color: #2c2c2c;     /* Fundo das seções escuro */
+    color: #ffffff;                /* Texto branco */
+}
+
+body.dark .secao h3 {
+    color: #ffffff;                /* Títulos em branco */
+    border-bottom-color: #f39c12;  /* Borda laranja para destaque */
+}
+
+/* Botão no tema escuro */
+body.dark .botao-tema {
+    background-color: #f39c12;     /* Laranja */
+    color: #1a1a1a;                /* Texto escuro */
+}
+
+body.dark .botao-tema:hover {
+    background-color: #d68910;     /* Laranja mais escuro */
+}
+
+/* Experiência e formação no tema escuro */
+body.dark .experiencia-item,
+body.dark .formacao-item {
+    border-bottom-color: #34495e;  /* Linha separadora mais escura */
+}
+
+body.dark .experiencia-item h4,
+body.dark .formacao-item h4 {
+    color: #f39c12;                /* Títulos em laranja */
+}
+
+body.dark .data {
+    color: #bdc3c7;                /* Datas em cinza claro */
+}
+
+/* Habilidades no tema escuro */
+body.dark .habilidade-item {
+    background-color: #34495e;     /* Cinza azulado */
+    color: #ffffff;
+}
+
+body.dark .habilidade-item:hover {
+    background-color: #f39c12;     /* Laranja ao passar mouse */
+    color: #1a1a1a;
+}
+
+/* Contato no tema escuro */
+body.dark .contato-item {
+    background-color: #34495e;
+    color: #ffffff;
+}
+
+body.dark .contato-item:hover {
+    background-color: #2c3e50;
+}
+
+/* ===========================================
+   PASSO 11: RESPONSIVIDADE (CELULAR)
+   =========================================== */
+
+/* Para telas menores que 600px (celulares) */
+@media (max-width: 600px) {
+    .cabecalho h1 {
+        font-size: 2rem;           /* Nome menor no celular */
+    }
+    
+    .cabecalho h2 {
+        font-size: 1.1rem;         /* Profissão menor */
+    }
+    
+    .container {
+        padding: 20px 15px;        /* Menos espaçamento */
+    }
+    
+    .secao {
+        padding: 20px;             /* Seções menores */
+        margin-bottom: 25px;
+    }
+    
+    .botao-tema {
+        top: 10px;                 /* Mais próximo do topo */
+        right: 10px;               /* Mais próximo da lateral */
+        padding: 10px 15px;        /* Botão menor */
+        font-size: 0.8rem;
+    }
+    
+    .habilidades {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .contato {
+        grid-template-columns: 1fr; /* Uma coluna só no celular */
+    }
+}
